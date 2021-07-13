@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include <limits.h>    // serve a dichiarare l'infinito, rappresentato nella costante UINT_MAX
+#include <limits.h> 
 #include <time.h>
 
 typedef struct
@@ -44,7 +44,7 @@ int pos(int s, int i, int j)
     return p;
 }
 
-/* Generatore di numeri double casuali nel range [low, high] */
+/* Generatore di numeri int casuali nel range [low, high] */
 int random_int(int low,int high ){
     int k;
     int d;
@@ -76,8 +76,8 @@ void initialize_ist(graph *g, char *c, int nnodes)
         for ( int j = 0; j < nnodes; ++j )
         {
             g->pred[pos(nnodes,i,j)] = i+1;             // inizilamente la matrice pred contiene in ogni elemento di ogni riga l'indice a quella riga
+          
             
-            //leggo da file invece che generare random, per generazione random guardare parte commentata sotto.
             fscanf(fp,"%d",&g->content[pos(nnodes,i,j)] );
             g->dist[pos(nnodes,i,j)] = g->content[pos(nnodes,i,j)];
            
@@ -119,7 +119,7 @@ void printPred(graph *g)
 
 //Controllo se x è potenza di 2
 int isPowerOfTwo(unsigned int x){
-  while (((x % 2) == 0) && x > 1) // Finchè x pari e maggiore di 1
+  while (((x % 2) == 0) && x > 1) 
     x /= 2;
   return (x == 1);
 }
